@@ -116,3 +116,23 @@ startButton.innerHTML = 'Game Over! Play again?';
 currentlyPlaying = false;
 }
 startRound();
+
+
+
+function showNotification() {
+  const Notification = new Notification("Someone just engaged with your post!", {  body: "hey Ravi, See who engaged with the post!"
+}) ;
+}
+
+console.log(Notification.permission);
+
+if(Notification.permission ==='granted'){
+   showNotification();
+} else if (Notification.permission !== 'denied'){
+  Notification.requestPermission().then(permission => {
+    if(permission ==='granted') {
+      showNotification();
+    }
+    
+  });
+}
